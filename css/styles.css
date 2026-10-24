@@ -1,0 +1,525 @@
+:root {
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    sans-serif;
+  color: #f7f8ff;
+  background: #090b24;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: radial-gradient(ellipse at 50% 20%, #22226b, #090b24 65%);
+  overflow-x: hidden;
+}
+body:before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.17;
+  background-image:
+    linear-gradient(#42e5ff55 1px, transparent 1px),
+    linear-gradient(90deg, #42e5ff55 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+header {
+  height: 60px;
+  padding: 0 max(16px, env(safe-area-inset-left));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #6ffaff;
+  position: relative;
+  z-index: 2;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid #65e6ff88;
+  border-radius: 13px;
+  color: white;
+  background: #ffffff12;
+  padding: 13px 18px;
+  min-height: 46px;
+  margin: 5px;
+}
+button:focus-visible {
+  outline: 3px solid #ffdc4d;
+}
+button.primary {
+  background: linear-gradient(120deg, #05bfe7, #7751ff);
+  border: 0;
+  box-shadow: 0 7px 28px #15caff50;
+  font-weight: 900;
+}
+main {
+  position: relative;
+}
+.screen {
+  display: none;
+  min-height: calc(100dvh - 60px);
+  width: min(100%, 900px);
+  margin: auto;
+  padding: 35px 18px 60px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 14px;
+  animation: appear 0.45s ease;
+}
+.screen.active {
+  display: flex;
+}
+h1 {
+  font-size: clamp(2.1rem, 8vw, 4.6rem);
+  line-height: 1.08;
+  margin: 10px 0;
+  text-shadow: 0 0 30px #7355ff88;
+}
+h2 {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+}
+em {
+  font-style: normal;
+  color: #68f5ff;
+}
+p {
+  line-height: 1.7;
+  max-width: 680px;
+}
+.eyebrow {
+  color: #ffdb58;
+  letter-spacing: 3px;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+.cube {
+  width: 115px;
+  height: 115px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #37e5f7, #6a49ef);
+  border: 6px solid #bafaff;
+  border-radius: 16px;
+  box-shadow: 0 0 45px #3bdcfb80;
+  font-size: 2.6rem;
+  font-weight: 1000;
+  animation: float 2.5s ease-in-out infinite;
+}
+.cube.small {
+  width: 75px;
+  height: 75px;
+  font-size: 1.5rem;
+  margin: auto;
+}
+.hud {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+.meter {
+  height: 16px;
+  background: #ffffff20;
+  border-radius: 20px;
+  flex: 1;
+  overflow: hidden;
+}
+.meter > div {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #50edff, #ffe365);
+  transition: width 0.3s;
+}
+canvas {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  background: #11163d;
+  border: 2px solid #4cdcff;
+  border-radius: 16px;
+  touch-action: none;
+  box-shadow: 0 0 35px #11c7ee22;
+}
+#toast {
+  min-height: 30px;
+  color: #ffdd66;
+  font-weight: 700;
+}
+.panel {
+  width: min(100%, 720px);
+  padding: clamp(22px, 5vw, 48px);
+  border: 1px solid #78e7ff99;
+  border-radius: 25px;
+  background: linear-gradient(140deg, #22275edb, #15152eeb);
+  box-shadow: 0 0 55px #5e63ff33;
+}
+.letter {
+  text-align: left;
+}
+.letter h2,
+.letter h3 {
+  text-align: center;
+}
+.letter button {
+  display: block;
+  margin: 25px auto 0;
+}
+.age {
+  font-size: clamp(6rem, 25vw, 11rem);
+  line-height: 1;
+  font-weight: 1000;
+  color: #ffdd56;
+  text-shadow: 0 0 35px #ffca5e80;
+}
+.bigstar {
+  font-size: 8rem;
+  color: #ffda58;
+  filter: drop-shadow(0 0 30px #ffdf4d);
+  animation: float 2s infinite;
+}
+.photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: 18px;
+  width: 100%;
+  margin: 20px 0;
+}
+.photo {
+  background: #232751;
+  border: 1px solid #6defff55;
+  border-radius: 18px;
+  overflow: hidden;
+  text-align: left;
+}
+.photo img {
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
+  background: #101330;
+}
+.photo h3,
+.photo p {
+  margin: 12px;
+}
+.photo p {
+  font-size: 0.85rem;
+}
+.portals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.portals button {
+  min-width: 155px;
+  min-height: 115px;
+  background: linear-gradient(145deg, #1d2670, #462a80);
+}
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+.piece {
+  position: absolute;
+  top: -20px;
+  width: 10px;
+  height: 16px;
+  animation: fall var(--duration) linear forwards;
+  background: var(--color);
+  left: var(--left);
+}
+dialog {
+  max-width: 95vw;
+  max-height: 95dvh;
+  background: #0d1030;
+  color: white;
+  border: 1px solid #67f6ff;
+  border-radius: 15px;
+  text-align: center;
+}
+dialog::backdrop {
+  background: #000c;
+}
+dialog img {
+  max-width: 70vw;
+  max-height: 70dvh;
+  object-fit: contain;
+}
+#closeViewer {
+  display: block;
+  margin-left: auto;
+}
+@keyframes float {
+  50% {
+    transform: translateY(-13px) rotate(5deg);
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fall {
+  to {
+    transform: translateY(110dvh) rotate(900deg);
+    opacity: 0;
+  }
+}
+@media (max-width: 520px) {
+  .screen {
+    padding-top: 15px;
+  }
+  canvas {
+    aspect-ratio: 4/3;
+  }
+  #game {
+    justify-content: flex-start;
+  }
+  .letter {
+    padding: 22px;
+  }
+  .letter p {
+    font-size: 0.95rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Galería de los 29 recuerdos recientes de Jethson */
+.photo {
+  position: relative;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  border-color: #67eaff66;
+  box-shadow: 0 8px 28px #0005;
+}
+.photo:hover,
+.photo:focus-visible {
+  transform: translateY(-5px);
+  box-shadow: 0 0 24px #59dfff55;
+  outline: 2px solid #6feaff;
+}
+.photo img {
+  display: block;
+  height: clamp(190px, 28vw, 260px);
+  object-fit: contain;
+  padding: 6px;
+}
+.photo-number {
+  display: inline-block;
+  margin: 13px 12px 0;
+  font-size: 0.67rem;
+  letter-spacing: 2px;
+  font-weight: 900;
+  color: #6ffaff;
+}
+.photo h3 {
+  color: #ffdf71;
+  margin-top: 7px;
+}
+.photo p {
+  margin-top: 0;
+}
+#viewer {
+  width: min(98vw, 900px);
+  padding: 12px;
+}
+#viewer img {
+  max-width: calc(100vw - 110px);
+  max-height: 68dvh;
+}
+#viewer button {
+  padding: 10px;
+  min-width: 42px;
+}
+#photoCaption {
+  margin: 10px auto;
+  font-weight: 700;
+  color: #ffdf71;
+}
+@media (max-width: 520px) {
+  .photos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .photo img {
+    height: 165px;
+  }
+  .photo h3 {
+    font-size: 0.85rem;
+  }
+  .photo p {
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
+  .photo-number {
+    font-size: 0.55rem;
+    letter-spacing: 0.5px;
+  }
+  .photo h3,
+  .photo p {
+    margin-left: 9px;
+    margin-right: 9px;
+  }
+}
+
+/* ==========================================
+   FOOTER PERSONALIZADO - TÍO MARBIN
+   Responsive | Gamer | Neón
+   ========================================== */
+
+.footer-marbin {
+  position: relative;
+  width: 100%;
+  padding: 28px 16px 22px;
+  margin-top: 40px;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    180deg,
+    rgba(15, 15, 35, 0.15),
+    rgba(8, 8, 22, 0.96)
+  );
+
+  border-top: 1px solid rgba(139, 92, 246, 0.18);
+  font-family: inherit;
+}
+
+.footer-marbin *,
+.footer-marbin *::before,
+.footer-marbin *::after {
+  box-sizing: border-box;
+}
+
+.footer-marbin__line {
+  width: 90px;
+  height: 3px;
+  margin: 0 auto 20px;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #8b5cf6,
+    #22d3ee,
+    #f472b6
+  );
+
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.4);
+}
+
+.footer-marbin__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.footer-marbin__text {
+  color: #cbd5e1;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+.footer-marbin__heart {
+  display: inline-block;
+  color: #fb7185;
+  font-size: 17px;
+  animation: marbin-heartbeat 1.2s ease-in-out infinite;
+  text-shadow: 0 0 12px rgba(251, 113, 133, 0.65);
+}
+
+.footer-marbin__name {
+  color: #67e8f9;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  text-shadow:
+    0 0 8px rgba(34, 211, 238, 0.45),
+    0 0 18px rgba(139, 92, 246, 0.25);
+}
+
+.footer-marbin__message {
+  margin: 12px 0 0;
+  color: #94a3b8;
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 0.4px;
+}
+
+@keyframes marbin-heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.25);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.18);
+  }
+
+  60% {
+    transform: scale(1);
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .footer-marbin__heart {
+    animation: none;
+  }
+}
+
+/* Ajustes para celulares */
+@media (max-width: 480px) {
+  .footer-marbin {
+    padding: 24px 12px 18px;
+    margin-top: 28px;
+  }
+
+  .footer-marbin__text {
+    font-size: 12px;
+  }
+
+  .footer-marbin__name {
+    font-size: 14px;
+  }
+
+  .footer-marbin__message {
+    font-size: 10px;
+  }
+}

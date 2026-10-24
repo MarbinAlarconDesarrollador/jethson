@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#090b24" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Jethson Dash · Level 14</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <span>◆ JETHSON DASH</span
+        ><button id="sound" aria-label="Música">♫</button>
+      </header>
+      <main>
+        <section id="intro" class="screen active">
+          <div class="cube">JC</div>
+          <p class="eyebrow">BIRTHDAY EDITION</p>
+          <h1>LEVEL <em>14</em></h1>
+          <h2>🔒 LOCKED</h2>
+          <p>
+            Jethson, has superado 13 niveles increíbles. ¡Consigue 14 estrellas
+            para desbloquear tu sorpresa!
+          </p>
+          <button id="start" class="primary">▶ INICIAR MISIÓN</button
+          ><button id="instructions">¿Cómo jugar?</button>
+          <p id="help" hidden>
+            Toca la pantalla o pulsa ESPACIO para saltar. Recoge 14 estrellas.
+            Si chocas, conservas tu progreso.
+          </p>
+        </section>
+        <section id="game" class="screen">
+          <div class="hud">
+            <b>⭐ <span id="score">0</span>/14</b>
+            <div class="meter"><div id="fill"></div></div>
+            <button id="pause">Ⅱ</button>
+          </div>
+          <canvas id="canvas" aria-label="Juego de saltos"></canvas>
+          <p id="toast" aria-live="polite">¡Recoge las estrellas!</p>
+          <button id="jump" class="primary">⬆ SALTAR</button
+          ><button id="skip" hidden>Ir a mi sorpresa →</button>
+        </section>
+        <section id="unlock" class="screen">
+          <div class="bigstar">✦</div>
+          <p class="eyebrow">ACHIEVEMENT UNLOCKED</p>
+          <h1>LEVEL 14<br /><em>UNLOCKED!</em></h1>
+          <h2>🎉 ¡Feliz cumpleaños, Jethson!</h2>
+          <p>Tu mayor superpoder es el corazón que tienes.</p>
+          <button class="primary next" data-next="card">
+            ABRIR MI REGALO 🎁
+          </button>
+        </section>
+        <section id="card" class="screen">
+          <div class="panel">
+            <p class="eyebrow">LEGENDARY REWARD</p>
+            <div class="age">14</div>
+            <h1>¡FELIZ NIVEL 14, JETHSON!</h1>
+            <p>
+              Hoy celebramos tus sonrisas, tus amistades, tus sueños y la
+              maravillosa persona en la que te estás convirtiendo.
+            </p>
+            <button class="primary next" data-next="letter">
+              DESCUBRIR MI SORPRESA ❤️
+            </button>
+          </div>
+        </section>
+        <section id="letter" class="screen">
+          <div class="panel letter">
+            <p class="eyebrow">UN MENSAJE DE TU EQUIPO FAVORITO</p>
+            <h2>Para nuestro campeón Jethson ❤️</h2>
+            <p>
+              Hoy llegas al nivel 14 de esta maravillosa aventura llamada vida.
+            </p>
+            <p>
+              Parece que fue ayer cuando comenzamos a descubrir el mundo
+              contigo, y hoy nos llena de orgullo ver el ser humano tan especial
+              en el que te estás convirtiendo.
+            </p>
+            <p>
+              Nos encanta tu alegría, esa forma tan bonita que tienes de hacer
+              amigos, tu sinceridad, el respeto con el que tratas a las personas
+              y, sobre todo, ese corazón tan grande que siempre tiene espacio
+              para los demás.
+            </p>
+            <p>
+              Sabemos cuánto disfrutas el fútbol, los videojuegos y cada nueva
+              aventura. Pero queremos que nunca olvides algo: no necesitas ganar
+              todos los partidos ni superar todos los niveles para ser
+              extraordinario.
+            </p>
+            <p><strong>Para nosotros, ya eres un campeón.</strong></p>
+            <p>
+              Que estos 14 años estén llenos de sueños, aprendizajes, amistades
+              verdaderas, aventuras y momentos que te hagan sonreír.
+            </p>
+            <p>
+              Nunca pierdas tu esencia. Sigue siendo ese niño alegre,
+              respetuoso, sincero y lleno de bondad que tanto amamos.
+            </p>
+            <p>
+              Y recuerda que, sin importar cuántos niveles tenga la vida,
+              siempre estaremos aquí para acompañarte, animarte y celebrar cada
+              uno de tus logros.
+            </p>
+            <p>
+              <strong>¡Feliz cumpleaños, hijo! Te amamos infinitamente.</strong>
+            </p>
+            <h3>Con todo nuestro amor,<br />Papá y Mamá ❤️</h3>
+            <button class="primary next" data-next="gallery">
+              VER MIS RECUERDOS 📸
+            </button>
+          </div>
+        </section>
+        <section id="gallery" class="screen">
+          <h1>14 AÑOS, <em>MILES DE RECUERDOS</em></h1>
+          <p>Cada fotografía guarda un pedacito de nuestra aventura contigo.</p>
+          <div id="photos" class="photos"></div>
+          <button class="primary next" data-next="profile">
+            MI PERFIL GAMER →
+          </button>
+        </section>
+        <section id="profile" class="screen">
+          <div class="panel">
+            <p class="eyebrow">PLAYER PROFILE</p>
+            <div class="cube small">JC</div>
+            <h1>JETHSON · LVL 14</h1>
+            <p>❤️ Empatía · ⭐ Alegría · 🛡️ Respeto</p>
+            <p>💎 Sinceridad · 🤝 Amistad · ⚽ Fútbol · 🎮 Gamer</p>
+            <h3>
+              🏆 Corazón de oro · Amigo legendario · Campeón de los sueños
+            </h3>
+            <button class="primary next" data-next="future">
+              PRÓXIMOS NIVELES →
+            </button>
+          </div>
+        </section>
+        <section id="future" class="screen">
+          <h1>LA AVENTURA <em>CONTINÚA</em></h1>
+          <div class="portals">
+            <button data-message="¡Nuevas aventuras y amistades te esperan!">
+              LEVEL 15<br />✨ Aventuras</button
+            ><button data-message="¡Sigue persiguiendo tus sueños!">
+              LEVEL 16<br />⚽ Sueños</button
+            ><button data-message="¡Tu historia tiene infinitas posibilidades!">
+              LEVEL ∞<br />🚀 Futuro
+            </button>
+          </div>
+          <p id="portalMsg" aria-live="polite">Elige un portal</p>
+          <button class="primary next" data-next="final">CELEBRAR 🎉</button>
+        </section>
+        <section id="final" class="screen">
+          <div class="bigstar">✦</div>
+          <h1>JETHSON ELIECER<br /><em>CORREA ALARCÓN</em></h1>
+          <div class="age">14</div>
+          <h2>THE ADVENTURE CONTINUES...</h2>
+          <p>
+            Que nunca te falten motivos para sonreír, sueños por perseguir y
+            amigos con quienes compartir.
+          </p>
+          <h3>Con todo el amor de Papá y Mamá ❤️</h3>
+          <button id="replay" class="primary">↻ VOLVER A JUGAR</button
+          ><button class="next" data-next="gallery">VER MIS FOTOS</button
+          ><button id="share">COMPARTIR</button>
+        </section>
+      </main>
+      <audio
+        id="music"
+        src="assets/audio/Catorce_Estrellas.mp3"
+        loop
+        preload="none"
+      ></audio>
+      <div id="confetti" aria-hidden="true"></div>
+      <dialog id="viewer">
+        <button id="closeViewer" aria-label="Cerrar">✕</button
+        ><button id="prevPhoto">❮</button
+        ><img id="fullPhoto" alt="Recuerdo familiar" /><button id="nextPhoto">
+          ❯
+        </button>
+        <p id="photoCaption"></p>
+      </dialog>
+
+      <footer class="footer-marbin">
+        <div class="footer-marbin__line"></div>
+
+        <div class="footer-marbin__content">
+          <span class="footer-marbin__text"> Hecho con </span>
+
+          <span class="footer-marbin__heart" aria-label="amor">♥</span>
+
+          <span class="footer-marbin__text"> por tu tío </span>
+
+          <span class="footer-marbin__name">Marbin</span>
+        </div>
+
+        <p class="footer-marbin__message">
+          Creado con cariño para momentos inolvidables ✨
+        </p>
+      </footer>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
